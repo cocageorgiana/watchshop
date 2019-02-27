@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WatchService } from 'src/app/shared/services/WatchService';
 import { Listing } from 'src/app/shared/model/Listing';
+import { ListingRequestDto } from 'src/app/shared/dto/ListingRequestDto';
 
 @Component({
   selector: 'app-watches-list',
@@ -14,13 +15,12 @@ export class WatchesListComponent implements OnInit {
     {'id': '2', 'name': 'Rolex', 'price': '5000$ ', 'stars': '5', 'image': 'Rolex'},
     {'id': '3', 'name': 'Cartier', 'price': '1500$ ', 'stars': '3', 'image': 'Cartier'}];
 
-  public listingItems: Listing[] = [];
-  public lists: any[] = [];
+  public listingItems: ListingRequestDto[] = [];
 
   constructor(private watchService: WatchService) { }
 
   ngOnInit() {
-    this.watchService.getListing().subscribe(results => this.lists = results);
+    this.watchService.getListing().subscribe(results => this.listingItems = results);
 
   }
 
