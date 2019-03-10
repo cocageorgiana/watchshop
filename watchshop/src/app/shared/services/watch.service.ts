@@ -1,9 +1,9 @@
-import { Listing } from 'src/app/shared/model/Listing';
+import { Listing } from 'src/app/shared/model/listing';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ListingRequestDto } from '../dto/ListingRequestDto';
+import { ListingRequestDto } from '../dto/listingrequest.dto';
 
 const BASE_URL = 'https://watch-listing.herokuapp.com/';
 const LISTING = 'listing';

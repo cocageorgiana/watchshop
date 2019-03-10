@@ -1,0 +1,21 @@
+<mat-toolbar class="design-header">
+  <div fxHide.gt-xs>
+      <button mat-icon-button (click)="onToggleSidenav()">
+      </button>
+  </div>
+  <div>
+      <a routerLink="/admin">Admin Page</a>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+      <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+        <div class="align-el">
+          <li>
+              <a class="user-page" routerLink="">User Page</a>
+          </li>
+          <li>
+              <a routerLink="">Actions</a>
+          </li>
+        </div>
+      </ul>
+  </div>
+</mat-toolbar>

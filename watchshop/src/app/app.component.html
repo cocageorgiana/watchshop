@@ -1,7 +1,14 @@
 <div>
-
-    <div class="container">
-        <router-outlet>
-        </router-outlet>
-    </div>
+  <div class="container">
+    <app-layout>
+      <mat-sidenav-container>
+        <mat-sidenav-content>
+          <app-header></app-header>
+          <main>
+            <router-outlet></router-outlet>
+          </main>
+        </mat-sidenav-content>
+      </mat-sidenav-container>
+    </app-layout>
   </div>
+</div>

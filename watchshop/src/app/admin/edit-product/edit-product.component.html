@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="reglist">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let registration of registrations; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ registration.title }}</td>
+          <td>{{ registration.description }}</td>
+          <td>{{ registration.price}}</td>
+          <td>
+            <button type="button" class="btn btn-info" (click)="onEdit(i)">Edit</button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-danger" (click)="onDelete(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-right">
+      <button type="submit" class="btn btn-primary" (click)="onNew()">New</button>
+    </div>
+  </div>
+  <br>
+  <div class="regentry" *ngIf="showNew">
+    <form (ngSubmit)="onSave()">
+      <div class="form-group row">
+        <label for="firstname-input" class="col-2 col-form-label">Title</label>
+        <div class="col-10">
+          <input class="form-control" type="text" [(ngModel)]="regModel.title" name="title">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="lastname-input" class="col-2 col-form-label">Description</label>
+        <div class="col-10">
+          <input class="form-control" type="text" [(ngModel)]="regModel.description" name="description">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="example-email-input" class="col-2 col-form-label">Price</label>
+        <div class="col-10">
+          <input class="form-control" type="text" [(ngModel)]="regModel.price" name="price">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success">{{submitType}}</button>
+      <button type="submit" class="btn btn-primary" (click)="onCancel()">Cancel</button>
+    </form>
+  </div>
+</div>

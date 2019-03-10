@@ -6,6 +6,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LayoutComponent } from './layout/layout.component';
+import { CommonModule } from '@angular/common';
+import { WatchesRoutingModule } from '../watches/watches-routing.module';
 
 const routes: Routes = [
   {
@@ -18,6 +20,8 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     MaterialModule,
+    CommonModule,
+    WatchesRoutingModule,
     RouterModule.forChild(routes)
   ],
   exports: [

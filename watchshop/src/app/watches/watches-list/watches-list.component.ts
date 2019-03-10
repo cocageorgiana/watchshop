@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { WatchService } from 'src/app/shared/services/WatchService';
-import { Listing } from 'src/app/shared/model/Listing';
-import { ListingRequestDto } from 'src/app/shared/dto/ListingRequestDto';
+import { WatchService } from 'src/app/shared/services/watch.service';
+import { Listing } from 'src/app/shared/model/listing';
+import { ListingRequestDto } from 'src/app/shared/dto/listingrequest.dto';
 
 @Component({
   selector: 'app-watches-list',

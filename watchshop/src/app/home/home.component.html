@@ -1,3 +1,19 @@
-<p>
-  home works!
-</p>
+<section fxLayout="column wrap">
+  <div fxFlexAlign="center">
+    <img class="watch-size" src="../../assets/images/watch-mainpage.jpg">
+  </div>
+
+  <p>In this application we are going to work with:</p>
+
+  <mat-tab-group (selectedTabChange)="executeSelectedChange($event)">
+    <mat-tab label="Watches List">
+      <app-watches></app-watches>
+    </mat-tab>
+    <mat-tab label="Consume .NET Core Web API">
+       <p>We will consume our .NET Core applicatoin. Basicaly, we will create complete CRUD client app.</p>
+      </mat-tab>
+    <mat-tab label="Fully responsive navigation menu">
+       <p>By using material components, we are going to create fully responsive navigation menu, with its side-bar as well.</p>
+      </mat-tab>
+  </mat-tab-group>
+</section>

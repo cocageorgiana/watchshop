@@ -1,3 +1,4 @@
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -6,11 +7,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './shared/material/material.module';
 import { NavigationModule } from './navigation/navigation.module';
-import { MainPageModule } from './main-page/main-page.module';
 import { AdminModule } from './admin/admin.module';
-import { WatchService } from './shared/services/WatchService';
+import { WatchService } from './shared/services/watch.service';
 
 import { HttpClient} from '@angular/common/http';
+import { HeaderComponent } from './navigation/header/header.component';
+import { CommonModule } from '@angular/common';
+import { WatchesModule } from './watches/watches.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,8 +26,9 @@ import { HttpClient} from '@angular/common/http';
     AppRoutingModule,
     MaterialModule,
     NavigationModule,
-    MainPageModule,
-    AdminModule
+    BrowserAnimationsModule,
+    AdminModule,
+    WatchesModule, FormsModule
   ],
   providers: [
     WatchService,
