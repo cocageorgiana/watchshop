@@ -14,7 +14,10 @@ import { HttpClient} from '@angular/common/http';
 import { HeaderComponent } from './navigation/header/header.component';
 import { CommonModule } from '@angular/common';
 import { WatchesModule } from './watches/watches.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ComponentsModule } from './shared/components/components.module';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InmemoryDb } from './shared/services/inmemory-db.service';
 
 @NgModule({
   declarations: [
@@ -26,9 +29,13 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     MaterialModule,
     NavigationModule,
+    ComponentsModule,
     BrowserAnimationsModule,
     AdminModule,
-    WatchesModule, FormsModule
+    WatchesModule, FormsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    InMemoryWebApiModule.forRoot(InmemoryDb)
   ],
   providers: [
     WatchService,

@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminRoutingModule } from 'src/app/admin/admin-routing.module';
 import { WatchesModule } from 'src/app/watches/watches.module';
 import { SearchService } from '../services/search.service';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [SearchItemsComponent],
@@ -16,7 +17,9 @@ import { SearchService } from '../services/search.service';
     BrowserAnimationsModule,
     NavigationRoutingModule,
     AdminRoutingModule,
-    WatchesModule
+    WatchesModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     SearchItemsComponent

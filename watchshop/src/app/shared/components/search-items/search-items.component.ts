@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup   } from '@angular/forms';
 import { SearchService } from '../../services/search.service';
 import { Watch, IWatchResponse } from '../../model/watch';
 import { debounceTime, switchMap } from 'rxjs/operators';
@@ -13,7 +13,7 @@ import { debounceTime, switchMap } from 'rxjs/operators';
 export class SearchItemsComponent implements OnInit {
   filteredUsers: Observable<IWatchResponse>;
   usersForm: FormGroup;
-  constructor(private fb: FormBuilder, private appService: SearchService) { }
+  constructor(private fb: FormBuilder, private searchService: SearchService) { }
 
   ngOnInit() {
     this.usersForm = this.fb.group({
@@ -23,7 +23,7 @@ export class SearchItemsComponent implements OnInit {
     this.filteredUsers = this.usersForm.get('userInput').valueChanges
       .pipe(
         debounceTime(300),
-        switchMap(value => this.appService.search({name: value}, 1))
+        switchMap(value => this.searchService.search({name: value}, 1))
       );
   }
 

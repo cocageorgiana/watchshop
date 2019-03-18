@@ -12,6 +12,7 @@ import {
   MatCardModule,
   MatCheckboxModule,
   MatInputModule,
+  MatAutocompleteModule,
   MatFormFieldModule
 } from "@angular/material";
 
@@ -30,7 +31,7 @@ import {
     MatGridListModule,
     MatCheckboxModule,
     MatInputModule,
-    MatFormFieldModule,
+    MatFormFieldModule
   ],
   exports: [
     MatMenuModule,
@@ -45,7 +46,7 @@ import {
     MatGridListModule,
     MatCheckboxModule,
     MatInputModule,
-    MatFormFieldModule,
+    MatFormFieldModule
   ]
 })
 export class MaterialModule {}

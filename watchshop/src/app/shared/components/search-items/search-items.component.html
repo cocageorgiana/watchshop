@@ -1,13 +1,13 @@
 <form class="example-form" [formGroup]='usersForm'>
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Choose a user" [matAutocomplete]="auto" formControlName='userInput'>
-  </mat-form-field>
+  <div class="example-full-width">
+    <input matInput placeholder="Choose a user" formControlName='userInput'>
+  </div>
   <span>Your choice is: {{usersForm.get('userInput').value | json}}</span>
 
-  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-      <mat-option *ngFor="let user of (filteredUsers | async)?.results" [value]="user">
+  <div >
+      <div *ngFor="let user of (filteredUsers | async)?.results" [value]="user">
         <span>{{ user.name }}</span>
-        <small> | ID: {{user.id}}</small>
-      </mat-option>
-  </mat-autocomplete>
+        <span> | ID: {{user.id}}</span>
+      </div>
+  </div>
 </form>
