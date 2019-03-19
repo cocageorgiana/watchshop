@@ -14,7 +14,7 @@ export class InmemoryDb extends InMemoryDbService{
       {id: 3, name: 'Sentence 13', country: 'France', brand: 'Rolex', price: 6525},
       {id: 4, name: 'Sentence 14', country: 'France', brand: 'Rolex', price: 1220},
     ]
-    return {users: {
+    return {watchesList: {
       total: watchesList.length,
       results: watchesList
     }};
