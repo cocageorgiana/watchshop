@@ -2,12 +2,12 @@
 
 <div class="basic-container">
   <mat-grid-list cols="4" rowHeight="fit"  [style.height]="'400px'" [style.width]="'100%'">
-    <mat-grid-tile *ngFor="let i of [1,2,3,4]" class="align-tile">
+    <mat-grid-tile *ngFor="let watch of listingItems.results" class="align-tile">
       <mat-card class="example-card">
         <img mat-card-image class="image-watch" src="../../../assets/images/michael-kors1.jpg" alt="Photo of a Shiba Inu">
 
-        <mat-card-title class="title">Mr. Z</mat-card-title>
-        <mat-card-subtitle class="subtitle">Dog Breed</mat-card-subtitle>
+        <mat-card-title class="title">{{watch.name}}</mat-card-title>
+        <mat-card-subtitle class="subtitle">{{watch.price}}</mat-card-subtitle>
         <mat-card-actions>
           <button mat-button>LIKE</button>
           <button mat-button>SHARE</button>

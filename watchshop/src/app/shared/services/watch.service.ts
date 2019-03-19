@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ListingRequestDto } from '../dto/listingrequest.dto';
+import { IWatchResponse } from '../model/watch';
 
 const BASE_URL = 'https://watch-listing.herokuapp.com/';
 const LISTING = 'listing';
@@ -21,5 +22,15 @@ export class WatchService {
       })
 
     );
+    }
+
+    public getWatches(): Observable<IWatchResponse[]> {
+      return this.client.get<IWatchResponse>('/api/watchesList')
+      .pipe(
+        map( (response: any) => {
+          console.log(response);
+          return response;
+        })
+      );
     }
 }
