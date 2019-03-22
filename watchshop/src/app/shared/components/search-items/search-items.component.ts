@@ -1,5 +1,6 @@
+import { WatchesListComponent } from './../../../watches/watches-list/watches-list.component';
 import { Observable } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup   } from '@angular/forms';
 import { SearchService } from '../../services/search.service';
 import { Watch, IWatchResponse } from '../../model/watch';
@@ -11,9 +12,12 @@ import { debounceTime, switchMap, finalize, tap } from 'rxjs/operators';
   styleUrls: ['./search-items.component.scss']
 })
 export class SearchItemsComponent implements OnInit {
-  filteredUsers: Watch[] = [];
+  filteredUsers: any[] = [];
   usersForm: FormGroup;
   isLoading = false;
+
+  @ViewChild('listingItems')
+  watches: WatchesListComponent;
   constructor(private fb: FormBuilder, private searchService: SearchService) { }
 
   ngOnInit() {
@@ -25,15 +29,18 @@ export class SearchItemsComponent implements OnInit {
       .get('userInput')
       .valueChanges
       .pipe(
-        debounceTime(300),
+        debounceTime(100),
         tap(() => this.isLoading = true),
         switchMap(value => this.searchService.search({ name: value }, 1)
           .pipe(
             finalize(() => this.isLoading = false),
-          )
+          ),
+
         )
       )
-      .subscribe(users => this.filteredUsers = users.results);
+      .subscribe(users => {this.filteredUsers = users.results,
+console.log(this.filteredUsers);
+    });
   }
 
   displayFn(user: Watch) {

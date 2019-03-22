@@ -12,5 +12,5 @@ export class Watch{
 
 export interface IWatchResponse {
    total: number;
-   results: Watch[];
+   results: any[];
 }

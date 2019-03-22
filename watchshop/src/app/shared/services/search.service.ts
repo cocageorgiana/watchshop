@@ -14,7 +14,7 @@ export class SearchService {
     .pipe(
       tap((response: IWatchResponse) => {
         response.results = response.results
-          .map(watch => new Watch(watch.id, watch.name))
+          .map(watch => new Watch(watch.id, watch.name, watch.country, watch.brand, watch.price))
           .filter(watch => watch.name.includes(filter.name))
         return response;
       })
