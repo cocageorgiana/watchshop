@@ -8,7 +8,8 @@ import { WatchesListComponent } from './watches-list/watches-list.component';
 import { WatchesDescriptionComponent } from './watches-description/watches-description.component';
 import { WatchesComponent } from './watches/watches.component';
 import { WatchesRoutingModule } from './watches-routing.module';
-
+import { FormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 @NgModule({
   declarations: [
     WatchesListComponent,
@@ -17,8 +18,10 @@ import { WatchesRoutingModule } from './watches-routing.module';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     MaterialModule,
     WatchesRoutingModule,
+    Ng2SearchPipeModule,
     BrowserModule,
     MaterialModule,
     HttpClientModule,
@@ -29,4 +32,6 @@ import { WatchesRoutingModule } from './watches-routing.module';
     WatchesComponent
   ]
 })
-export class WatchesModule { }
+export class WatchesModule {
+ }
+

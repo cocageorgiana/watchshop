@@ -12,25 +12,25 @@ import { IWatchResponse } from 'src/app/shared/model/watch';
 export class WatchesListComponent implements OnInit {
   @Input() referenceEnumValues: any[];
   @Input() watchesList: any[];
-  public watches: any[] = [
-    {'id': '1', 'name': 'Atlantic', 'price': '3000$ ', 'stars': '3', 'image': 'Atlantic'},
-    {'id': '2', 'name': 'Rolex', 'price': '5000$ ', 'stars': '5', 'image': 'Rolex'},
-    {'id': '3', 'name': 'Cartier', 'price': '1500$ ', 'stars': '3', 'image': 'Cartier'}];
 
   public listingItems: any[]=[];
 
   constructor(private watchService: WatchService) { }
 
   ngOnInit() {
-   // this.watchService.getListing().subscribe(results => this.listingItems = results);
     this.watchService.getWatches().subscribe(watch => {
       this.listingItems = watch;
       console.log(this.watchesList);
-      console.log(this.listingItems);});
-      console.log(this.watchesList);
+      console.log(this.listingItems);
+    });
 
   }
 
+  searchedFinished(newArray: any[]) {
+    this.listingItems = newArray;
+  }
 
+  title = 'Angular Search Using ng2-search-filter';
+  searchText;
 
 }
