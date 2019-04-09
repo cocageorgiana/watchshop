@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Advertisement } from 'src/app/shared/model/advertisement';
+import { WatchService } from 'src/app/shared/services/watch.service';
 
 @Component({
   selector: 'app-edit-product',
@@ -17,19 +18,20 @@ export class EditProductComponent implements OnInit {
   showNew: Boolean = false;
   submitType: string = 'Save';
   selectedRow: number;
-  constructor() {
-    this.registrations.push(new Advertisement('Rolex', 'test1', 500 ));
+
+  public listingItems: any[]=[];
+  constructor(private watchService: WatchService) {
+  /*  this.registrations.push(new Advertisement('Rolex', 'test1', 500 ));
     this.registrations.push(new Advertisement('Cartier', 'test2', 22));
-    this.registrations.push(new Advertisement('Omega', 'test3', 300));
+    this.registrations.push(new Advertisement('Omega', 'test3', 300));*/
+
+    this.watchService.getWatches().subscribe(watch => {
+      this.listingItems = watch;
+      console.log(this.listingItems);
+    });
   }
 
   ngOnInit() {}
-
-  onNew() {
-    this.regModel = new Advertisement();
-    this.submitType = 'Save';
-    this.showNew = true;
-  }
 
   onSave() {
     if (this.submitType === 'Save') {
@@ -58,5 +60,9 @@ export class EditProductComponent implements OnInit {
     this.showNew = false;
   }
 
-
+  add(addWatch):void {
+    if(addWatch === true){
+    this.showNew = true;
+    }
+  }
 }
